@@ -41,6 +41,13 @@ class _HomeState extends State<Home> {
                 ),
               ),
               ListTile(
+                title: const Text('Home'),
+                onTap: () {
+                  // Update the state of the app.
+                  // ...
+                },
+              ),
+              ListTile(
                 title: const Text('Times'),
                 onTap: () {
                   // Update the state of the app.
@@ -88,6 +95,7 @@ class _HomeState extends State<Home> {
         ),
       ),
     );
+    lets make mistank
   }
 }
 
