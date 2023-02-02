@@ -6,9 +6,9 @@ import 'package:flutter/material.dart';
 void main() => runApp(MaterialApp(
   initialRoute: 'home',
   routes: {
-    'times':(context) => const Time(),
+    'times':(context) => Time(),
     'home':(context) => Home(),
-    'offline mode': (context) => const Offbuzz()
+    'offline mode': (context) => Offbuzz()
   },
 ));
 

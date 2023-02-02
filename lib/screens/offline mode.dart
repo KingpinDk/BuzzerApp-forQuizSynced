@@ -11,7 +11,7 @@ class Offbuzz extends StatefulWidget {
 }
 
 class _OffbuzzState extends State<Offbuzz> {
-
+  String strtime = '';
   final player = AudioPlayer();
   @override
   Widget build(BuildContext context) {
@@ -30,23 +30,37 @@ class _OffbuzzState extends State<Offbuzz> {
               fontWeight: FontWeight.normal
           ),
         ),
-        body: Center(
-          child: ElevatedButton(
-            style: ElevatedButton.styleFrom(
-                padding: const EdgeInsets.all(50.0),
-                backgroundColor: Colors.red,
-                elevation: 20.0,
-                shadowColor: Colors.black,
-                shape: const CircleBorder()
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  padding: const EdgeInsets.all(50.0),
+                  backgroundColor: Colors.red,
+                  elevation: 20.0,
+                  shadowColor: Colors.black,
+                  shape: const CircleBorder()
+              ),
+              onPressed: () async{
+                DateTime time = DateTime.now();
+                await player.play(AssetSource('beep.mp3'));
+                setState(() {
+                  strtime = time.toString().substring(10,time.toString().length);
+                });
+              },
+              child: const Text("Buzz me")
             ),
-            onPressed: () async{
-              DateTime time = DateTime.now();
-              await player.play(AssetSource('beep.mp3'));
-              String strtime = time.toString().substring(10,time.toString().length);
-              print(strtime);
-            },
-            child: const Text("Buzz me"),
-          ),
+            const SizedBox(height: 20.0),
+            Divider(height: 30.0,color: Colors.grey[850], thickness: 3.0,endIndent: 30.0,indent: 30.0),
+            const SizedBox(height: 20.0),
+            Text('Last Time Stamp: $strtime',
+              style: const TextStyle(
+                fontFamily: 'Bungee',
+                fontWeight: FontWeight.w200,
+                color: Colors.white
+              ),
+            )
+          ],
         ),
       ),
     );

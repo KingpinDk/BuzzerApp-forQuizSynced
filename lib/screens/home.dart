@@ -28,47 +28,47 @@ class _HomeState extends State<Home> {
           ),
         ),
         body: Center(
-          child: Center(
-            child: Column(
-              children: [
-                const SizedBox(height: 20.0),
-                const Text('Select the mode of use?',
-                style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  fontFamily: 'Bungee',
-                  fontSize: 30.0,
-                  color: Colors.white
-                ),
-                ),
-                const SizedBox(height: 30.0,),
-                TextButton(onPressed: (){ Navigator.pushNamed(context,'times');},
-                    child: const Text('The Host',
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const SizedBox(height: 20.0),
+              const Text('Mode of use?',
+              style: TextStyle(
+                fontWeight: FontWeight.w500,
+                fontFamily: 'Bungee',
+                fontSize: 30.0,
+                color: Colors.white
+              ),
+              ),
+              const SizedBox(height: 30.0,),
+              TextButton(onPressed: (){ Navigator.pushNamed(context,'times');},
+                  child: const Text('The Host',
+                  style: TextStyle(
+                    color: Colors.red,
+                    fontFamily: 'Bungee'
+                  ),
+                  )
+              ),
+              const SizedBox(height: 20.0),
+              TextButton(onPressed: (){ Navigator.pushNamed(context,'times');},
+                  child: const Text('Player',
                     style: TextStyle(
-                      color: Colors.red,
-                      fontFamily: 'Bungee'
+                        color: Colors.red,
+                        fontFamily: 'Bungee'
                     ),
-                    )
-                ),
-                const SizedBox(height: 20.0),
-                TextButton(onPressed: (){ Navigator.pushNamed(context,'times');},
-                    child: const Text('Player',
-                      style: TextStyle(
-                          color: Colors.red,
-                          fontFamily: 'Bungee'
-                      ),
-                    )
-                ),
-                const SizedBox(height: 20.0),
-                TextButton(onPressed: (){ Navigator.pushNamed(context,'offline mode');},
-                    child: const Text('Offline Mode',
-                      style: TextStyle(
-                          color: Colors.red,
-                          fontFamily: 'Bungee'
-                      ),
-                    )
-                )
-              ],
-            ),
+                  )
+              ),
+              const SizedBox(height: 20.0),
+              TextButton(onPressed: (){ Navigator.pushNamed(context,'offline mode');},
+                  child: const Text('Offline Mode',
+                    style: TextStyle(
+                        color: Colors.red,
+                        fontFamily: 'Bungee'
+                    ),
+                  )
+              )
+            ],
           ),
         ),
       ),
