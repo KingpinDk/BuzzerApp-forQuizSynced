@@ -1,4 +1,7 @@
+
 import 'package:flutter/material.dart';
+import 'package:audioplayers/audioplayers.dart';
+
 
 class Offbuzz extends StatefulWidget {
   const Offbuzz({Key? key}) : super(key: key);
@@ -8,6 +11,8 @@ class Offbuzz extends StatefulWidget {
 }
 
 class _OffbuzzState extends State<Offbuzz> {
+
+  final player = AudioPlayer();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -34,8 +39,9 @@ class _OffbuzzState extends State<Offbuzz> {
                 shadowColor: Colors.black,
                 shape: const CircleBorder()
             ),
-            onPressed: () {
+            onPressed: () async{
               DateTime time = DateTime.now();
+              await player.play(AssetSource('beep.mp3'));
               String strtime = time.toString().substring(10,time.toString().length);
               print(strtime);
             },
