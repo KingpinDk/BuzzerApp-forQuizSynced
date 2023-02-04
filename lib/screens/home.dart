@@ -42,7 +42,7 @@ class _HomeState extends State<Home> {
               ),
               ),
               const SizedBox(height: 30.0,),
-              TextButton(onPressed: (){ Navigator.pushNamed(context,'times');},
+              TextButton(onPressed: (){ Navigator.pushNamed(context,'host game');},
                   child: const Text('The Host',
                   style: TextStyle(
                     color: Colors.red,
@@ -51,7 +51,7 @@ class _HomeState extends State<Home> {
                   )
               ),
               const SizedBox(height: 20.0),
-              TextButton(onPressed: (){ Navigator.pushNamed(context,'times');},
+              TextButton(onPressed: (){ Navigator.pushNamed(context,'play game');},
                   child: const Text('Player',
                     style: TextStyle(
                         color: Colors.red,
