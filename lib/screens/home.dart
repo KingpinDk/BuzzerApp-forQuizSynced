@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_p2p_connection/flutter_p2p_connection.dart';
 
 class Home extends StatefulWidget{
   @override
@@ -6,6 +7,8 @@ class Home extends StatefulWidget{
 }
 
 class _HomeState extends State<Home> {
+
+  final _flutterP2pConnectionPlugin = FlutterP2pConnection();
   @override
   void initState() {
     super.initState();
@@ -15,7 +18,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.grey[700],
+        backgroundColor: Colors.white70,
         appBar: AppBar(
           elevation: 0.0,
           backgroundColor: Colors.grey[850],
@@ -38,11 +41,31 @@ class _HomeState extends State<Home> {
                 fontWeight: FontWeight.w500,
                 fontFamily: 'Bungee',
                 fontSize: 30.0,
-                color: Colors.white
+                color: Colors.black
               ),
               ),
               const SizedBox(height: 30.0,),
-              TextButton(onPressed: (){ Navigator.pushNamed(context,'host game');},
+              TextButton(onPressed: () async {
+                if( !await _flutterP2pConnectionPlugin.checkLocationEnabled())
+                  {
+                    _flutterP2pConnectionPlugin.enableLocationServices();
+                  }
+                if(!await _flutterP2pConnectionPlugin.checkWifiEnabled())
+                  {
+                    _flutterP2pConnectionPlugin.enableWifiServices();
+                  }
+                if(! await _flutterP2pConnectionPlugin.checkLocationPermission())
+                  {
+                    _flutterP2pConnectionPlugin.askStorageAndLocationPermission();
+                  }
+
+                if(!mounted) {
+                  return;
+                }
+
+                //snack("created group: $created");
+                Navigator.pushNamed(context,'host game');
+                },
                   child: const Text('The Host',
                   style: TextStyle(
                     color: Colors.red,
@@ -51,7 +74,24 @@ class _HomeState extends State<Home> {
                   )
               ),
               const SizedBox(height: 20.0),
-              TextButton(onPressed: (){ Navigator.pushNamed(context,'play game');},
+              TextButton(onPressed: () async {
+                if( !await _flutterP2pConnectionPlugin.checkLocationEnabled())
+                {
+                _flutterP2pConnectionPlugin.enableLocationServices();
+                }
+                if(!await _flutterP2pConnectionPlugin.checkWifiEnabled())
+                {
+                _flutterP2pConnectionPlugin.enableWifiServices();
+                }
+                if(! await _flutterP2pConnectionPlugin.checkLocationPermission())
+                {
+                _flutterP2pConnectionPlugin.askStorageAndLocationPermission();
+                }
+                if(!mounted) {
+                return;
+                }
+                Navigator.pushNamed(context,'play game');
+                },
                   child: const Text('Player',
                     style: TextStyle(
                         color: Colors.red,

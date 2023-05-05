@@ -16,7 +16,7 @@ class _OffbuzzState extends State<Offbuzz> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.grey[700],
+        backgroundColor: Colors.white70,
         appBar: AppBar(
           centerTitle: true,
           elevation: 0.0,
@@ -56,7 +56,7 @@ class _OffbuzzState extends State<Offbuzz> {
               style: const TextStyle(
                 fontFamily: 'Bungee',
                 fontWeight: FontWeight.w200,
-                color: Colors.white
+                color: Colors.black
               ),
             )
           ],

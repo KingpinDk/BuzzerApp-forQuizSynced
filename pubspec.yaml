@@ -32,6 +32,7 @@ dependencies:
   audioplayers: ^3.0.1
   flutter:
     sdk: flutter
+  flutter_p2p_connection: ^2.0.1
   fluttertoast: ^8.1.2
 
 dev_dependencies:
